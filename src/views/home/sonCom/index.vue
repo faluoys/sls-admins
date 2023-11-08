@@ -259,7 +259,7 @@ watchEffect(() => {
 const goProduct = (index, row) => {
     console.log(row.scId)
     console.log(111, row);
-    router.push({path: '/home/scComProduct', query: {scId: row.scId}})
+    router.push({name: 'scComProduct', query: {scId: row.scId}})
 }
 
 

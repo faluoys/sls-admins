@@ -165,7 +165,7 @@ const init = () => {
 }
 
 const goMeeting = () => {
-    router.push('/home/checkOffice')
+    router.push({ name: 'checkOffice' });
 }
 
 const kong = () => {

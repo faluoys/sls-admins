@@ -11,7 +11,7 @@
 
             </div>
             <div>
-                <router-view name="home"></router-view>
+                <router-view></router-view>
             </div>
         </div>
     </div>
@@ -29,7 +29,6 @@ const IsCollapse = (e) => {
 }
 </script>
 
-
-<style lang="less" scoped>
+<style scoped>
 
 </style>

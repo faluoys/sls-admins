@@ -10,6 +10,7 @@ function pathResolve(dir){
     return resolve(process.cwd(), '.', dir);
 }
 export default defineConfig({
+    base: './',
     plugins: [
         vue(),
         AutoImport({

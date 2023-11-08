@@ -203,7 +203,7 @@ const submitForm = () => {
 
                 setTimeout(() => {
                     ElMessage.success('登录成功')
-                    router.push({name: 'home'})
+                    router.push({name: 'index'})
                 }, 500)
             } else {
                 ElMessage.error('账号或密码错误')
@@ -259,7 +259,7 @@ const resetForm = (formRef, formRegRef) => {
 #login {
     align-items: center;
     background-color: var(--white);
-    background-image: url("@/assets/img/beijing.jpg");
+    background-image: url("@/assets/img/bgs.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

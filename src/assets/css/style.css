@@ -195,7 +195,6 @@ html.dark {
 ::view-transition-old(root) {
     z-index: 999;
 }
-::view-transition-old(root) {
+::view-transition-new(root) {
     z-index: 1;
 }
-

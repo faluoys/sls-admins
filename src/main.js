@@ -1,11 +1,18 @@
-import {createApp} from 'vue'
-import '@/assets/css/style.css'
+import { createApp } from 'vue'
+
 import App from './App.vue'
+/** 重置样式 这里引入自定义的重置样式也可 */
+import '@unocss/reset/tailwind.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import '@/assets/css/index.less'
+
 import router from './router'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+import '@/assets/css/index.less'
+import '@/assets/css/style.css'
+/** 引入uno.css，不引入不生效 */
+import 'uno.css'
 //导入pinia
 import { createPinia } from 'pinia'
 import DataVVue3 from '@kjgl77/datav-vue3'

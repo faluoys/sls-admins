@@ -144,12 +144,16 @@
             </div>
 
             <div class="bottom">
-                <el-table :data="tableData"
-                          stripe
-                          scrollbar-always-on
-                          setScrollLeft
-                          :default-sort="{ prop: 'nId', order: 'descending' }"
-                          style="width: 100%;height: 500px">
+                <el-table
+                    :data="tableData"
+                    stripe
+                    scrollbar-always-on
+                    setScrollLeft
+                    :default-sort="{ prop: 'nId', order: 'descending' }"
+                    style="width: 100%;height: 500px"
+                    dark:text-white
+                    dark:bg-hex-1b1b1f
+                >
                     <el-table-column prop="uId" label="ID"/>
                     <el-table-column fixed prop="uName" label="用户名称"/>
                     <el-table-column prop="dName" label="用户部门"/>

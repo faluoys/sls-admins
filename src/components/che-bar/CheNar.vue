@@ -1,9 +1,13 @@
 <template>
     <el-menu
         :default-active="route.path"
-        active-text-color="#ffd04b"
-        background-color="#304156"
+        active-text-color="#ef862c"
+        background-color="#006a64"
         text-color="#fff"
+        popper-append-to-body
+        :unique-opened="true"
+        dark:text-white
+        dark:bg-hex-1b1b1f
         class="el-menu-vertical-demo"
         :collapse="isCollapse"
         :router="true"
@@ -21,6 +25,12 @@
             </el-icon>
             <template #title>可视化首页</template>
         </el-menu-item>
+        <el-menu-item index="/logreg">
+            <el-icon>
+                <HelpFilled />
+            </el-icon>
+            <template #title>logreg</template>
+        </el-menu-item>
         <el-sub-menu index="1">
             <template #title>
                 <el-icon>
@@ -29,6 +39,8 @@
                 <span>系统管理</span>
             </template>
             <el-menu-item
+                dark:text-white
+                dark:bg-hex-1b1b1f
                 v-for="item in navList"
                 :key="item.nId"
                 :index="'/home/' + item.nUrl.split('/')[0]"

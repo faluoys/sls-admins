@@ -65,7 +65,8 @@
                           stripe
                           scrollbar-always-on
                           setScrollLeft
-                          :default-sort="{ prop: 'dId', order: 'descending' }" style="width: 100%;height: 500px">
+                          :default-sort="{ prop: 'dId', order: 'descending' }"
+                          style="width: 100%;">
                     <el-table-column label="Id" prop="dId"/>
                     <el-table-column label="部门名称" prop="dName"/>
                     <el-table-column label="部门人数" prop="dCount"/>

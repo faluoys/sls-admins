@@ -48,6 +48,14 @@ const routes = [
             title: "可视化首页"
         }
     },
+    {
+        path: '/logreg',
+        name: 'logreg',
+        component: () => import('@/views/logreg/index.vue'),
+        meta: {
+            title: "测试"
+        }
+    },
 ]
 //根据权限动态生成路由
 // const dongroute = []

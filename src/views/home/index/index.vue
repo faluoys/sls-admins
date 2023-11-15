@@ -8,7 +8,7 @@
         <div class="nav" ref="nav">
             <div class="top">
                 <div ref="chartMap"
-                     style="background-color: #87CEEB;width: 100%;height: 500px;padding: 30px 25px"></div>
+                     style="width: 100%;height: 550px;padding: 30px 25px"></div>
             </div>
 
             <div class="bottom" style="width: 100%; display: flex">
@@ -22,7 +22,7 @@
 <script setup>
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口
 import * as echarts from 'echarts';
-import {onMounted, onUnmounted, onBeforeUnmount, reactive, ref,shallowRef, watchEffect} from 'vue';
+import {onMounted, onUnmounted, onBeforeUnmount, reactive, ref, shallowRef, watchEffect} from 'vue';
 import chinaMap from '@/assets/json/chinaChange.json';
 import {debounce} from '@/utils/index.js';
 
@@ -36,9 +36,9 @@ const resizeObserver = new ResizeObserver(entries => {
     debounceResize();
 })
 //使用自定义防抖函数来限制 resize 方法的频率
-const debounceResize  = debounce(() =>{
+const debounceResize = debounce(() => {
     resizeEcharts();
-},300);
+}, 300);
 
 const chart = ref(null);
 const chart1 = ref(null);
@@ -74,7 +74,13 @@ const chartData = reactive({
     text: '堆积面积图',
     text2: '渐变堆积面积图',
     bgColor: '#6a7985',
-    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+    color: [
+        '#80FFA5',
+        '#00DDFF',
+        '#37A2FF',
+        '#FF0087',
+        '#FFBF00'
+    ],
     names: ['电子邮件', '工会广告', '视频广告', '折线方向', '搜索引擎'],
     dates: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
 })
@@ -88,7 +94,12 @@ const chartInit = () => {
     //指定图表的配置项和数据
     optionMap.value = {
         title: {
-            text: '中国地图'
+            text: '中国地图',
+            textStyle: {
+                color: '#6e7079', // 设置字体颜色
+                fontSize: 25 // 设置字体大小
+                // 其他样式属性...
+            }
         },
         series: [
             {
@@ -103,7 +114,7 @@ const chartInit = () => {
                     borderColor: '#19bbee',
                     areaColor: '#219edb'
                 },
-                zoom: 1.3,
+                zoom: 1.2,
                 data: [
                     {name: '北京', value: getRandomValue()},
                     {name: '天津', value: getRandomValue()},
@@ -241,11 +252,16 @@ const updateChartData = () => {
     });
 };
 const init = () => {
-    myChart.value = echarts.init(chart.value, 'dark');
+    myChart.value = echarts.init(chart.value);
 
     option.value = {
         title: {
-            text: chartData.text
+            text: chartData.text,
+            textStyle: {
+                color: '#6e7079', // 设置字体颜色
+                fontSize: 14 // 设置字体大小
+                // 其他样式属性...
+            }
         },
         animation: true, // 启用动画
         animationDuration: 1000, // 动画持续时间（毫秒）
@@ -259,7 +275,12 @@ const init = () => {
             }
         },
         legend: {
-            data: chartData.names
+            data: chartData.names,
+            textStyle: {
+                color: '#6e7079', // 设置字体颜色
+                fontSize: 12 // 设置字体大小
+                // 其他样式属性...
+            }
         },
         toolbox: {
             feature: {
@@ -344,12 +365,17 @@ const init = () => {
 
     option.value && myChart.value.setOption(option.value);
 
-    myChart1.value = echarts.init(chart1.value, 'dark');
+    myChart1.value = echarts.init(chart1.value);
 
     option1.value = {
         color: chartData.color,
         title: {
-            text: chartData.text2
+            text: chartData.text2,
+            textStyle: {
+                color: '#6e7079', // 设置字体颜色
+                fontSize: 14 // 设置字体大小
+                // 其他样式属性...
+            }
         },
         animation: true, // 启用动画
         animationDuration: 1000, // 动画持续时间（毫秒）
@@ -363,7 +389,12 @@ const init = () => {
             }
         },
         legend: {
-            data: chartData.names
+            data: chartData.names,
+            textStyle: {
+                color: '#6e7079', // 设置字体颜色
+                fontSize: 12 // 设置字体大小
+                // 其他样式属性...
+            }
         },
         toolbox: {
             feature: {

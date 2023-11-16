@@ -1,20 +1,20 @@
 <template>
-    <div class="home">
-        <div class="left">
-            <che-nar :isCollapse="isCollapse"/>
-        </div>
-
-        <div class="right">
-            <div class="nav-top">
-
-                <nar-top @IsCollapse="IsCollapse"/>
-
-            </div>
-            <div>
-                <router-view></router-view>
-            </div>
-        </div>
+  <div class="home">
+    <div class="left">
+      <che-nar :isCollapse="isCollapse"/>
     </div>
+
+    <div class="right">
+      <div class="nav-top">
+
+        <nar-top @IsCollapse="IsCollapse"/>
+
+      </div>
+      <div>
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -24,8 +24,8 @@ import {ref} from 'vue'
 
 const isCollapse = ref(false)
 const IsCollapse = (e) => {
-    // console.log(111,e)
-    isCollapse.value = e
+  // console.log(111,e)
+  isCollapse.value = e
 }
 </script>
 

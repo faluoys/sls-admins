@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory, createWebHashHistory} from "vue-router";
 import {ElMessage} from 'element-plus';
-import { close, start } from '@/utils/nporgress.js';
+import {close, start} from '@/utils/nporgress.js';
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
 // 我们后面再讨论嵌套路由。
@@ -97,7 +97,7 @@ function addDynamic() {
     router.addRoute(homeRoute);
 }
 
-console.log(routes,'routes')
+console.log(routes, 'routes')
 
 // 3. 创建路由实例并传递 `routes` 配置
 // 你可以在这里输入更多的配置，但我们在这里

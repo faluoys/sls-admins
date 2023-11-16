@@ -1,14 +1,14 @@
-import { defineStore } from 'pinia'
-import{login} from '@/api/auth.js'
+import {defineStore} from 'pinia'
+import {login} from '@/api/auth.js'
 import {addNav} from '@/api/navs.js'
 
 /**
  * 这个 第一个参数main，也称为 id，是必要的，Pinia 使用它来将 store 连接到 devtools。
  * 将返回的函数命名为use...（更好的语义化） 是跨可组合项的约定，以使其符合你的使用习惯。
  */
-export const useStore = defineStore('user',{
+export const useStore = defineStore('user', {
     // 为了完整类型推理，推荐使用箭头函数
-    state:() => {
+    state: () => {
         return {
             // 所有这些属性都将自动推断出它们的类型
             userInfo_store: {
@@ -40,7 +40,7 @@ export const useStore = defineStore('user',{
     },
     actions: {
         setToken(token) {
-            localStorage.setItem("token",token);
+            localStorage.setItem("token", token);
             this.token = token;
         },
         setUserInfo(data) {

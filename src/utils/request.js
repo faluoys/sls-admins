@@ -34,7 +34,7 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use((response) => {
     // 响应回来的数据操作
     return response.data;
-},error => {
+}, error => {
     // 报错的时候抛出一个报错信息
     return Promise.reject(error)
 })

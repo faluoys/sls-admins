@@ -125,15 +125,17 @@
             <template #default="scope">
               <el-button
                   round
+                  :icon="Edit"
                   type="primary"
                   @click="handleEdit(scope.row, scope.row.pId)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row)"
-              >删除
+              >
               </el-button>
             </template>
           </el-table-column>
@@ -147,17 +149,15 @@
 import {ref, reactive, computed, onMounted, watchEffect} from 'vue'
 import {useRoute} from 'vue-router'
 import {allProduct, addProduct, delProduct, oneProduct, upProduct} from '@/api/scComProduct.js'
-import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
-
+import {Delete, Edit, Plus} from '@element-plus/icons-vue'
+import {ElMessage} from 'element-plus';
+import qs from 'qs'
 const route = useRoute()
 const scId = route.query.scId;
 
 const dialogFormVisible = ref(false)
 const FormVisible = ref(false)
 const formLabelWidth = '240px'
-
-import {ElMessage} from 'element-plus';
-import qs from 'qs'
 
 const tableData = ref([]);
 const productForm = reactive({

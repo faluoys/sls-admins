@@ -169,16 +169,18 @@
           <el-table-column align="center" label="操作" width="170">
             <template #default="scope">
               <el-button
-                  round
                   type="primary"
+                  :icon="Edit"
+                  round
                   @click="handleEdit(scope.row, scope.row.uId)"
-              >修改
+              >
               </el-button>
               <el-button
+                  :icon="Delete"
                   round
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row.uId)"
-              >删除
+              >
               </el-button>
             </template>
           </el-table-column>
@@ -206,6 +208,8 @@ import {allNav} from '@/api/navs.js'
 import {allRoles} from '@/api/roles.js'
 import {allDept} from '@/api/dept.js'
 import {useStore} from '@/store/user.js'
+import {ElMessage} from 'element-plus';
+import {Edit, Delete} from "@element-plus/icons-vue";
 
 const store = useStore();
 const dialogFormVisible = ref(false)
@@ -222,8 +226,6 @@ const deptList = ref([])
 
 const rName = ref('')
 const dName = ref('')
-
-import {ElMessage} from 'element-plus';
 
 const tableData = ref([]);
 const userForm = reactive({

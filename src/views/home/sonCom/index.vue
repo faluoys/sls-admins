@@ -99,10 +99,12 @@
           <el-table-column align="center" label="公司产品" width="150">
             <template #default="scope">
               <el-button
-                  plain
+                  round
+                  title="点击查看"
+                  :icon="View"
                   color="#626aef"
                   @click="goProduct(scope.$index, scope.row)"
-              >查看
+              >
               </el-button>
             </template>
           </el-table-column>
@@ -112,14 +114,16 @@
               <el-button
                   round
                   type="primary"
+                  :icon="Edit"
                   @click="handleEdit(scope.row, scope.row.scId,2)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row.scId)"
-              >删除
+              >
               </el-button>
             </template>
           </el-table-column>
@@ -133,15 +137,16 @@
 import {ref, reactive, computed, onMounted, watchEffect} from 'vue'
 import {allSc, addSc, delSc, upSc, oneSc} from '@/api/sonCom.js'
 import {allUsers} from '@/api/users.js'
-import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
+import {Delete, Edit, Plus, View} from '@element-plus/icons-vue'
+import {ElMessage} from 'element-plus';
+import qs from 'qs'
 
 const dialogFormVisible = ref(false)
 const formLabelWidth = '240px'
 
-import {ElMessage} from 'element-plus';
-import qs from 'qs'
-import router from '@/router/index.js'
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const tableData = ref([]);
 const sonComForm = reactive({
   scName: "",

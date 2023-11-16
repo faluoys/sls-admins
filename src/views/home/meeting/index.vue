@@ -100,15 +100,17 @@
             <template #default="scope">
               <el-button
                   round
+                  :icon="Edit"
                   type="primary"
                   @click="handleEdit(scope.row, scope.row.oId)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row.oId)"
-              >删除
+              >
               </el-button>
             </template>
           </el-table-column>
@@ -132,17 +134,16 @@
 <script setup>
 import {ref, reactive, onMounted, watchEffect} from 'vue'
 import {allOffice, delOffice, addOffice, oneOffice, upOffice} from '@/api/meeting.js'
+import {ElMessage} from 'element-plus';
+import {Delete,Edit} from "@element-plus/icons-vue";
+import {useRouter} from "vue-router";
 // import {useStore} from '@/store/user.js'
-// const store = useStore();
+const router = useRouter();
 const dialogFormVisible = ref(false)
 const FormVisible = ref(false)
 const formLabelWidth = '240px'
 
 const Page = ref();
-
-import {ElMessage} from 'element-plus';
-import router from '@/router/index.js'
-
 const tableData = ref([]);
 const officeForm = reactive({
   oId: "",

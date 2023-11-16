@@ -86,15 +86,17 @@
             <template #default="scope">
               <el-button
                   round
+                  :icon="Edit"
                   type="primary"
                   @click="handleEdit(scope.row, scope.row.nId)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row.nId)"
-              >删除
+              >
               </el-button
               >
             </template>
@@ -109,13 +111,13 @@
 import {ref, reactive, computed, onMounted, watchEffect} from 'vue'
 import {addNav, allNav, delNav, upNav, oneNav} from '@/api/navs.js'
 import {useStore} from '@/store/user.js'
+import {ElMessage} from 'element-plus';
+import {Delete,Edit} from "@element-plus/icons-vue";
 
 const store = useStore();
 const dialogFormVisible = ref(false)
 const FormVisible = ref(false)
 const formLabelWidth = '240px'
-
-import {ElMessage} from 'element-plus';
 
 const tableData = ref([]);
 const navForm = reactive({

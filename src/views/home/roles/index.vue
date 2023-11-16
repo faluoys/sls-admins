@@ -95,17 +95,18 @@
             <template #default="scope">
               <el-button
                   round
+                  :icon="Edit"
                   type="primary"
                   @click="handleEdit(scope.row, scope.row.rId)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row.rId)"
-              >删除
-              </el-button
               >
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -118,6 +119,8 @@
 import {ref, reactive, computed, onMounted, watchEffect} from 'vue'
 import {allRoles, addRoles, delRoles, upRoles, oneRoles} from '@/api/roles.js'
 import {allNav} from '@/api/navs.js'
+import {ElMessage} from 'element-plus';
+import {Delete,Edit} from "@element-plus/icons-vue";
 
 const FormVisible = ref(false)
 const dialogFormVisible = ref(false)
@@ -126,8 +129,6 @@ const formLabelWidth = '240px'
 
 const checkedArrAdd = ref([]);
 const checkedArrUp = ref([]);
-
-import {ElMessage} from 'element-plus';
 
 const allNavs = ref([])
 

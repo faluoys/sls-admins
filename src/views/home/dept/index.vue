@@ -82,17 +82,18 @@
             <template #default="scope">
               <el-button
                   round
+                  :icon="Edit"
                   type="primary"
                   @click="handleEdit(scope.row, scope.row.dId)"
-              >修改
+              >
               </el-button>
               <el-button
                   round
+                  :icon="Delete"
                   type="danger"
                   @click="handleDelete(scope.row, scope.row.dId)"
-              >删除
-              </el-button
               >
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -104,13 +105,13 @@
 <script setup>
 import {ref, reactive, computed, onMounted, watchEffect} from 'vue'
 import {allDept, addDept, delDept, updateDept, oneDept} from '@/api/dept.js'
+import {ElMessage} from 'element-plus';
+import {Edit,Delete} from "@element-plus/icons-vue";
 
 const FormVisible = ref(false)
 const dialogFormVisible = ref(false)
 
 const formLabelWidth = '240px'
-
-import {ElMessage} from 'element-plus';
 
 const tableData = ref([]);
 const deptForm = reactive({

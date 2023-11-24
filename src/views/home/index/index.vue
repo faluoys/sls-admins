@@ -191,7 +191,7 @@ const chartInit = () => {
         ]
       },
       textStyle: {
-        color: '#111', // 提示文字颜色
+        color: '#fff', // 提示文字颜色
       },
     },
     visualMap: {

@@ -73,7 +73,7 @@ html {
 /* 修改滚动条的宽度和颜色 */
 /* Webkit浏览器（如Chrome和Safari）*/
 ::-webkit-scrollbar {
-    width: 5px; /* 调整滚动条宽度 */
+    width: 10px; /* 调整滚动条宽度 */
 }
 
 /* 滚动条轨道 */

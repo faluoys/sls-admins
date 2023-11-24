@@ -128,7 +128,10 @@ const turnPage = (item) => {
 
 const str = localStorage.getItem('userPower');
 onMounted(() => {
-  navList.value = JSON.parse(localStorage.getItem('powerNav'))
+  // const menuList = JSON.parse(localStorage.getItem('powerNav'))
+  // if (menuList) {
+  //   navList.value = menuList
+  // }
   // console.log(navList,111)
   // const iconMapping = {
   //     1: UserFilled,
@@ -149,13 +152,14 @@ onMounted(() => {
   //     item.iconClass = iconMapping[item.nId] || '';
   //     return item;
   // });
-  // getPowerNav({str: str}).then(res => {
-  //     console.log(11, res)
-  //     navListUrl.value = res[0].nUrl.split('/')[0];
-  //     console.log(22, res.nUrl)
-  //     console.log(33, navList.value)
-  //     console.log(44, navListUrl.value)
-  // })
+  getPowerNav({str: str}).then(res => {
+    console.log(11, res)
+    navList.value = res;
+    navListUrl.value = res[0].nUrl.split('/')[0];
+    console.log(22, res.nUrl)
+    console.log(33, navList.value)
+    console.log(44, navListUrl.value)
+  })
 })
 </script>
 
